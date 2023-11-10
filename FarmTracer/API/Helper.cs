@@ -88,8 +88,36 @@ namespace FarmTracer.API
                 throw new Exception("Erreur lors de l'ajout du salarié.");
             }
         }
+        public async Task UpdateSalarie(Salarie salarie)
+        {
+            // Convertissez l'objet salarie en JSON
+            var json = JsonConvert.SerializeObject(salarie);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            // Envoyez une requête PUT à l'API pour mettre à jour le salarie
+            var response = await _client.PutAsync($"Salaries/{salarie.Id}", content);
+
+            // Vérifiez si la requête a réussi
+            if (!response.IsSuccessStatusCode)
+            {
+                // Récupérez le message d'erreur de l'API si la requête a échoué
+                var errorResponse = await response.Content.ReadAsStringAsync();
+                throw new Exception($"Erreur lors de la mise à jour du salarié : {response.StatusCode}, Détails : {errorResponse}");
+            }
+        }
+        public async Task DeleteSalarie(int id)
+        {
+            var response = await _client.DeleteAsync($"Salaries/{id}");
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorResponse = await response.Content.ReadAsStringAsync();
+                throw new Exception($"Erreur lors de la suppression du salarié : {response.StatusCode}, Détails : {errorResponse}");
+            }
+        }
+
+
     }
 
-   
+
 
 }
