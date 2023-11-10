@@ -40,7 +40,9 @@ namespace FarmTracer
                 if (apiHelper.IsPasswordValid(enteredPassword, admin.PasswordHash, admin.Salt))
                 {
                     MessageBox.Show("Connexion réussie!", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // Ici, vous pouvez rediriger l'utilisateur vers le formulaire ou la page appropriée après une connexion réussie.
+                    FormAdmin formAdmin = new FormAdmin();
+                    formAdmin.Show();
+                    this.Hide();
                 }
                 else
                 {
