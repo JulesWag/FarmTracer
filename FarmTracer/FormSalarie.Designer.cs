@@ -267,6 +267,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.MediumAquamarine;
             ClientSize = new Size(800, 450);
             Controls.Add(pictureBox1);
             Controls.Add(btnAjouter);

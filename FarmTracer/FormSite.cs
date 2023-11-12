@@ -154,12 +154,12 @@ namespace FarmTracer
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
+
             var FormAdmin = new FormAdmin();
             FormAdmin.Show();
-            this.Hide(); 
+            this.Hide();
 
-            
+
         }
     }
 }

@@ -108,8 +108,7 @@ namespace FarmTracer
                     newSalaries.Add(newSalarie);
                 }
 
-                // Ajouter tous les salariés en une seule fois si votre API le permet
-                // Sinon, vous pouvez boucler sur chaque salarié et l'ajouter individuellement
+
                 foreach (var salarie in newSalaries)
                 {
                     await _helper.AddSalarie(salarie);
@@ -121,11 +120,11 @@ namespace FarmTracer
             {
                 MessageBox.Show("Erreur lors de l'ajout de salariés aléatoires : " + ex.Message);
             }
-    }
-            private void btnQuit_Click(object sender, EventArgs e)
+        }
+        private void btnQuit_Click(object sender, EventArgs e)
         {
 
-            var FormConnexion   = new FormConnexion();
+            var FormConnexion = new FormConnexion();
             FormConnexion.Show();
             this.Hide();
         }
