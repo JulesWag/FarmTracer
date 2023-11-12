@@ -38,7 +38,7 @@ namespace FarmTracer
             {
                 var salaries = await _helper.GetAllSalaries();
                 dataGridViewSalaries.DataSource = salaries;
-                // Vous pouvez choisir de masquer certaines colonnes si elles ne doivent pas être affichées
+                //... a faire : masquer des colonnes
             }
             catch (Exception ex)
             {
@@ -126,7 +126,7 @@ namespace FarmTracer
                     {
                         try
                         {
-                            await _helper.DeleteSalarie(selectedSalarie.Id); // Assurez-vous que cette méthode existe dans votre Helper
+                            await _helper.DeleteSalarie(selectedSalarie.Id); 
                             await LoadSalariesAsync(); // Recharger les données dans le DataGridView
                             MessageBox.Show("Le salarié a été supprimé avec succès.");
                         }
@@ -163,5 +163,57 @@ namespace FarmTracer
                 await LoadSalariesAsync(); // Si la barre de recherche est vide, rechargez tous les salariés
             }
         }
+
+        private async void btnAjouter_Click(object sender, EventArgs e)
+        {
+            
+            if (string.IsNullOrWhiteSpace(tbNom.Text) ||
+                string.IsNullOrWhiteSpace(tbPrenom.Text) ||
+                string.IsNullOrWhiteSpace(tbTf.Text) ||
+                string.IsNullOrWhiteSpace(tbTp.Text) ||
+                string.IsNullOrWhiteSpace(tbEmail.Text) ||
+                string.IsNullOrWhiteSpace(tbService.Text) ||
+                string.IsNullOrWhiteSpace(tbSite.Text))
+            {
+                MessageBox.Show("Tous les champs doivent être remplis.");
+                return;
+            }
+            
+            // Créer un nouvel objet Salarie avec les informations du formulaire
+            var nouveauSalarie = new Helper.Salarie
+            {
+                Nom = tbNom.Text,
+                Prenom = tbPrenom.Text,
+                TelephoneFixe = tbTf.Text,
+                TelephonePortable = tbTp.Text,
+                Email = tbEmail.Text,
+                Service = tbService.Text,
+                Site = tbSite.Text
+            };
+
+            try
+            {
+                
+                await _helper.AddSalarie(nouveauSalarie);
+                MessageBox.Show("Le salarié a été ajouté avec succès.");
+
+                // Nettoyer les champs après l'ajout
+                tbNom.Clear();
+                tbPrenom.Clear();
+                tbTf.Clear();
+                tbTp.Clear();
+                tbEmail.Clear();
+                tbService.Clear();
+                tbSite.Clear();
+
+                
+                await LoadSalariesAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors de l'ajout du salarié : " + ex.Message);
+            }
+        }
     }
-}
+    }
+
