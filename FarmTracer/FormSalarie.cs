@@ -126,7 +126,7 @@ namespace FarmTracer
                     {
                         try
                         {
-                            await _helper.DeleteSalarie(selectedSalarie.Id); 
+                            await _helper.DeleteSalarie(selectedSalarie.Id);
                             await LoadSalariesAsync(); // Recharger les données dans le DataGridView
                             MessageBox.Show("Le salarié a été supprimé avec succès.");
                         }
@@ -166,7 +166,7 @@ namespace FarmTracer
 
         private async void btnAjouter_Click(object sender, EventArgs e)
         {
-            
+
             if (string.IsNullOrWhiteSpace(tbNom.Text) ||
                 string.IsNullOrWhiteSpace(tbPrenom.Text) ||
                 string.IsNullOrWhiteSpace(tbTf.Text) ||
@@ -178,7 +178,7 @@ namespace FarmTracer
                 MessageBox.Show("Tous les champs doivent être remplis.");
                 return;
             }
-            
+
             // Créer un nouvel objet Salarie avec les informations du formulaire
             var nouveauSalarie = new Helper.Salarie
             {
@@ -193,7 +193,7 @@ namespace FarmTracer
 
             try
             {
-                
+
                 await _helper.AddSalarie(nouveauSalarie);
                 MessageBox.Show("Le salarié a été ajouté avec succès.");
 
@@ -206,7 +206,7 @@ namespace FarmTracer
                 tbService.Clear();
                 tbSite.Clear();
 
-                
+
                 await LoadSalariesAsync();
             }
             catch (Exception ex)
@@ -214,6 +214,14 @@ namespace FarmTracer
                 MessageBox.Show("Erreur lors de l'ajout du salarié : " + ex.Message);
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+            var FormAdmin = new FormAdmin();
+            FormAdmin.Show();
+            this.Hide();
+        }
     }
-    }
+}
 

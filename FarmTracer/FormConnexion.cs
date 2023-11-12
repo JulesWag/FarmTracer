@@ -32,26 +32,17 @@ namespace FarmTracer
             string username = tbUser.Text;
             string enteredPassword = tbPassword.Text;
 
-            Helper apiHelper = new Helper();
-            Admin admin = await apiHelper.GetAdminByUsername(username);
+            string hardcodedUsername = "user"; // Exemple de nom d'utilisateur en dur
+            string hardcodedPassword = "resu"; // Exemple de mot de passe en dur
 
-            if (admin != null)
+            // Vérifiez d'abord les identifiants en dur
+            if (username.Equals(hardcodedUsername, StringComparison.OrdinalIgnoreCase) && enteredPassword == hardcodedPassword)
             {
-                if (apiHelper.IsPasswordValid(enteredPassword, admin.PasswordHash, admin.Salt))
-                {
-                    MessageBox.Show("Connexion réussie!", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FormAdmin formAdmin = new FormAdmin();
-                    formAdmin.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Mot de passe incorrect.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Nom d'utilisateur introuvable.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Connexion réussie avec les identifiants en dur!", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FormAdmin formAdmin = new FormAdmin();
+                formAdmin.Show();
+                this.Hide();
+                return; // Pour éviter de poursuivre avec la vérification de l'API
             }
         }
     }

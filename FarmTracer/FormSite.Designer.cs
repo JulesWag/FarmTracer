@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSite));
             dataGridViewSite = new DataGridView();
             btnModifier = new Button();
             btnValider = new Button();
@@ -37,7 +38,9 @@
             label2 = new Label();
             btnAjouter = new Button();
             tbModif = new TextBox();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewSite).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // dataGridViewSite
@@ -73,7 +76,7 @@
             // 
             // btnSupprimer
             // 
-            btnSupprimer.Location = new Point(12, 409);
+            btnSupprimer.Location = new Point(128, 409);
             btnSupprimer.Name = "btnSupprimer";
             btnSupprimer.Size = new Size(94, 29);
             btnSupprimer.TabIndex = 3;
@@ -124,11 +127,24 @@
             tbModif.TabIndex = 8;
             tbModif.TextChanged += tbModif_TextChanged;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(12, 396);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(50, 42);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // FormSite
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
             Controls.Add(tbModif);
             Controls.Add(btnAjouter);
             Controls.Add(label2);
@@ -141,6 +157,7 @@
             Name = "FormSite";
             Text = "FormSite";
             ((System.ComponentModel.ISupportInitialize)dataGridViewSite).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -156,5 +173,6 @@
         private Label label2;
         private Button btnAjouter;
         private TextBox tbModif;
+        private PictureBox pictureBox1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormService));
             gridService = new DataGridView();
             label1 = new Label();
             label2 = new Label();
@@ -37,7 +38,9 @@
             tbModifier = new TextBox();
             btnValider = new Button();
             btnSupprimer = new Button();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)gridService).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // gridService
@@ -122,11 +125,23 @@
             btnSupprimer.UseVisualStyleBackColor = true;
             btnSupprimer.Click += btnSupprimer_Click_1;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(24, 397);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(47, 41);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 18;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // FormService
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
             Controls.Add(btnSupprimer);
             Controls.Add(btnValider);
             Controls.Add(tbModifier);
@@ -139,6 +154,7 @@
             Name = "FormService";
             Text = "FormService";
             ((System.ComponentModel.ISupportInitialize)gridService).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -154,5 +170,6 @@
         private TextBox tbModifier;
         private Button btnValider;
         private Button btnSupprimer;
+        private PictureBox pictureBox1;
     }
 }

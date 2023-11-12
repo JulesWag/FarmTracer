@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static FarmTracer.API.Helper; 
+using static FarmTracer.API.Helper;
 
 namespace FarmTracer
 {
@@ -89,24 +89,45 @@ namespace FarmTracer
             try
             {
                 var random = new Random();
-                var newSalarie = new Salarie
-                {
-                    Nom = "Nom" + random.Next(1000, 9999),
-                    Prenom = "Prenom" + random.Next(1000, 9999),
-                    TelephoneFixe = "02" + random.Next(10000000, 99999999),
-                    TelephonePortable = "06" + random.Next(10000000, 99999999),
-                    Email = $"email{random.Next(1000, 9999)}@entreprise.com",
-                    Service = "Ressources Humaines",
-                    Site = new[] { "Paris", "Nantes", "Toulouse", "Nice", "Lille" }[random.Next(5)]
-                };
 
-                await _helper.AddSalarie(newSalarie);
+                // Créez une liste pour stocker temporairement les nouveaux salariés
+                List<Salarie> newSalaries = new List<Salarie>();
+
+                for (int i = 0; i < 200; i++) // Boucle pour créer 200 salariés
+                {
+                    var newSalarie = new Salarie
+                    {
+                        Nom = "Nom" + random.Next(1000, 9999),
+                        Prenom = "Prenom" + random.Next(1000, 9999),
+                        TelephoneFixe = "02" + random.Next(10000000, 99999999),
+                        TelephonePortable = "06" + random.Next(10000000, 99999999),
+                        Email = $"email{random.Next(1000, 9999)}@entreprise.com",
+                        Service = new[] { "Ressources Humaines", "Comptabilité", "SAV", "Accueil", "Commercial", "Informatique", "Juridique" }[random.Next(7)],
+                        Site = new[] { "Paris", "Nantes", "Toulouse", "Nice", "Lille" }[random.Next(5)]
+                    };
+                    newSalaries.Add(newSalarie);
+                }
+
+                // Ajouter tous les salariés en une seule fois si votre API le permet
+                // Sinon, vous pouvez boucler sur chaque salarié et l'ajouter individuellement
+                foreach (var salarie in newSalaries)
+                {
+                    await _helper.AddSalarie(salarie);
+                }
+
                 await LoadSalariesAsync(); // Mise à jour de l'affichage
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur lors de l'ajout d'un salarié aléatoire : " + ex.Message);
+                MessageBox.Show("Erreur lors de l'ajout de salariés aléatoires : " + ex.Message);
             }
+    }
+            private void btnQuit_Click(object sender, EventArgs e)
+        {
+
+            var FormConnexion   = new FormConnexion();
+            FormConnexion.Show();
+            this.Hide();
         }
     }
 }

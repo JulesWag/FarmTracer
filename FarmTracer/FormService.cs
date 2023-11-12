@@ -101,7 +101,7 @@ namespace FarmTracer
             }
         }
 
-       
+
 
         private async void btnSupprimer_Click_1(object sender, EventArgs e)
         {
@@ -125,6 +125,14 @@ namespace FarmTracer
             {
                 MessageBox.Show($"Erreur lors de la suppression du service : {ex.Message}");
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+            var FormAdmin = new FormAdmin();
+            FormAdmin.Show();
+            this.Hide();
         }
     }
 }

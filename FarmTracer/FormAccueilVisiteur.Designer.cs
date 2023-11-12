@@ -34,6 +34,7 @@
             buttonSearch = new Button();
             lbFiltre = new Label();
             btnAddRandomSalarie = new Button();
+            btnQuit = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewSalaries).BeginInit();
             SuspendLayout();
             // 
@@ -61,7 +62,7 @@
             comboBoxFilterType.Name = "comboBoxFilterType";
             comboBoxFilterType.Size = new Size(151, 28);
             comboBoxFilterType.TabIndex = 2;
-            
+            // 
             // buttonSearch
             // 
             buttonSearch.Location = new Point(36, 278);
@@ -91,11 +92,22 @@
             btnAddRandomSalarie.UseVisualStyleBackColor = true;
             btnAddRandomSalarie.Click += btnAddRandomSalarie_Click;
             // 
+            // btnQuit
+            // 
+            btnQuit.Location = new Point(12, 409);
+            btnQuit.Name = "btnQuit";
+            btnQuit.Size = new Size(71, 29);
+            btnQuit.TabIndex = 6;
+            btnQuit.Text = "Quitter";
+            btnQuit.UseVisualStyleBackColor = true;
+            btnQuit.Click += btnQuit_Click;
+            // 
             // FormAccueilVisiteur
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnQuit);
             Controls.Add(btnAddRandomSalarie);
             Controls.Add(lbFiltre);
             Controls.Add(buttonSearch);
@@ -117,5 +129,6 @@
         private Button buttonSearch;
         private Label lbFiltre;
         private Button btnAddRandomSalarie;
+        private Button btnQuit;
     }
 }

@@ -88,14 +88,14 @@ namespace FarmTracer
 
             try
             {
-                
+
                 await _helperSite.UpdateSite(selectedSite);
                 MessageBox.Show("Site mis à jour avec succès.");
 
                 // Recharger la liste des sites pour afficher les changements
                 await LoadSitesAsync();
 
-                
+
                 tbModif.Clear();
 
                 // Réinitialiser l'objet selectedSite
@@ -105,7 +105,7 @@ namespace FarmTracer
             {
                 MessageBox.Show($"Erreur lors de la mise à jour du site : {ex.Message}");
             }
-            selectedSite = null; 
+            selectedSite = null;
         }
 
         private async void btnSupprimer_Click(object sender, EventArgs e)
@@ -113,7 +113,7 @@ namespace FarmTracer
             // Vérifiez si un site est sélectionné dans le DataGridView
             if (dataGridViewSite.SelectedRows.Count > 0)
             {
-                
+
                 var selectedRow = dataGridViewSite.SelectedRows[0];
                 selectedSite = selectedRow.DataBoundItem as HelperSite.Site;
 
@@ -127,7 +127,7 @@ namespace FarmTracer
                     {
                         try
                         {
-                            
+
                             await _helperSite.DeleteSite(selectedSite.Id);
                             MessageBox.Show("Le site a été supprimé avec succès.");
 
@@ -150,6 +150,16 @@ namespace FarmTracer
         private void dataGridViewSite_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            
+            var FormAdmin = new FormAdmin();
+            FormAdmin.Show();
+            this.Hide(); 
+
+            
         }
     }
 }

@@ -34,12 +34,13 @@
             btnSite = new Button();
             btnService = new Button();
             lbService = new Label();
+            btnDeco = new Button();
             SuspendLayout();
             // 
             // lbSalarie
             // 
             lbSalarie.AutoSize = true;
-            lbSalarie.Location = new Point(75, 93);
+            lbSalarie.Location = new Point(127, 93);
             lbSalarie.Name = "lbSalarie";
             lbSalarie.Size = new Size(60, 20);
             lbSalarie.TabIndex = 0;
@@ -47,7 +48,7 @@
             // 
             // btnSalarie
             // 
-            btnSalarie.Location = new Point(63, 116);
+            btnSalarie.Location = new Point(111, 116);
             btnSalarie.Name = "btnSalarie";
             btnSalarie.Size = new Size(94, 29);
             btnSalarie.TabIndex = 1;
@@ -58,7 +59,7 @@
             // lbSite
             // 
             lbSite.AutoSize = true;
-            lbSite.Location = new Point(312, 93);
+            lbSite.Location = new Point(318, 93);
             lbSite.Name = "lbSite";
             lbSite.Size = new Size(40, 20);
             lbSite.TabIndex = 2;
@@ -66,7 +67,7 @@
             // 
             // btnSite
             // 
-            btnSite.Location = new Point(287, 116);
+            btnSite.Location = new Point(296, 116);
             btnSite.Name = "btnSite";
             btnSite.Size = new Size(94, 29);
             btnSite.TabIndex = 3;
@@ -76,7 +77,7 @@
             // 
             // btnService
             // 
-            btnService.Location = new Point(505, 116);
+            btnService.Location = new Point(511, 116);
             btnService.Name = "btnService";
             btnService.Size = new Size(94, 29);
             btnService.TabIndex = 4;
@@ -93,11 +94,22 @@
             lbService.TabIndex = 5;
             lbService.Text = "Services";
             // 
+            // btnDeco
+            // 
+            btnDeco.Location = new Point(12, 409);
+            btnDeco.Name = "btnDeco";
+            btnDeco.Size = new Size(123, 29);
+            btnDeco.TabIndex = 6;
+            btnDeco.Text = "Déconnection";
+            btnDeco.UseVisualStyleBackColor = true;
+            btnDeco.Click += btnDeco_Click;
+            // 
             // FormAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnDeco);
             Controls.Add(lbService);
             Controls.Add(btnService);
             Controls.Add(btnSite);
@@ -118,5 +130,6 @@
         private Button btnSite;
         private Button btnService;
         private Label lbService;
+        private Button btnDeco;
     }
 }

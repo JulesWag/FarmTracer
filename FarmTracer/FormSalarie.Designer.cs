@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalarie));
             tbID = new TextBox();
             tbNom = new TextBox();
             tbPrenom = new TextBox();
@@ -51,7 +52,9 @@
             dataGridViewSalaries = new DataGridView();
             tbRecherche = new TextBox();
             btnAjouter = new Button();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewSalaries).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // tbID
@@ -204,7 +207,7 @@
             // 
             // btnSupprimer
             // 
-            btnSupprimer.Location = new Point(694, 409);
+            btnSupprimer.Location = new Point(334, 409);
             btnSupprimer.Name = "btnSupprimer";
             btnSupprimer.Size = new Size(94, 29);
             btnSupprimer.TabIndex = 18;
@@ -249,11 +252,23 @@
             btnAjouter.UseVisualStyleBackColor = true;
             btnAjouter.Click += btnAjouter_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(730, 409);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(58, 36);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 23;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // FormSalarie
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
             Controls.Add(btnAjouter);
             Controls.Add(tbRecherche);
             Controls.Add(dataGridViewSalaries);
@@ -280,6 +295,7 @@
             Name = "FormSalarie";
             Text = "FormSalarie";
             ((System.ComponentModel.ISupportInitialize)dataGridViewSalaries).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -309,5 +325,6 @@
         private DataGridView dataGridViewSalaries;
         private TextBox tbRecherche;
         private Button btnAjouter;
+        private PictureBox pictureBox1;
     }
 }

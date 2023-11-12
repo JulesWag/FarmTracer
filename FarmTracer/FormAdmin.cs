@@ -37,5 +37,13 @@ namespace FarmTracer
             formService.Show();
             this.Hide();
         }
+
+        private void btnDeco_Click(object sender, EventArgs e)
+        {
+
+            var FormConnexion = new FormConnexion();
+            FormConnexion.Show();
+            this.Hide();
+        }
     }
 }
