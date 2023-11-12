@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static FarmTracer.API.Helper; // Assurez-vous que cette ligne est correcte, sinon retirez-la.
+using static FarmTracer.API.Helper; 
 
 namespace FarmTracer
 {

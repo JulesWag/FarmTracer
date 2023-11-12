@@ -50,6 +50,7 @@
             btnRechercher = new Button();
             dataGridViewSalaries = new DataGridView();
             tbRecherche = new TextBox();
+            btnAjouter = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewSalaries).BeginInit();
             SuspendLayout();
             // 
@@ -238,11 +239,22 @@
             tbRecherche.Size = new Size(159, 27);
             tbRecherche.TabIndex = 21;
             // 
+            // btnAjouter
+            // 
+            btnAjouter.Location = new Point(12, 276);
+            btnAjouter.Name = "btnAjouter";
+            btnAjouter.Size = new Size(94, 29);
+            btnAjouter.TabIndex = 22;
+            btnAjouter.Text = "Ajouter";
+            btnAjouter.UseVisualStyleBackColor = true;
+            btnAjouter.Click += btnAjouter_Click;
+            // 
             // FormSalarie
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnAjouter);
             Controls.Add(tbRecherche);
             Controls.Add(dataGridViewSalaries);
             Controls.Add(btnRechercher);
@@ -296,5 +308,6 @@
         private Button btnRechercher;
         private DataGridView dataGridViewSalaries;
         private TextBox tbRecherche;
+        private Button btnAjouter;
     }
 }

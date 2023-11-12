@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Text;
+using static FarmTracer.API.HelperService;
+using static FarmTracer.API.HelperSite;
 
 namespace FarmTracer.API
 {
@@ -65,6 +67,31 @@ namespace FarmTracer.API
             public string Username { get; set; }
             public string PasswordHash { get; set; }
             public byte[] Salt { get; set; }
+        }
+       
+
+        // Méthode pour vérifier si un Service existe par nom
+        public async Task<Service> GetServiceByName(string nom)
+        {
+            var response = await _client.GetAsync($"Services/byname/{nom}");
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonResult = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<Service>(jsonResult);
+            }
+            return null;
+        }
+
+        // Méthode pour vérifier si un Site existe par nom
+        public async Task<Site> GetSiteByName(string nom)
+        {
+            var response = await _client.GetAsync($"Sites/byname/{nom}");
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonResult = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<Site>(jsonResult);
+            }
+            return null;
         }
 
         public class Salarie
